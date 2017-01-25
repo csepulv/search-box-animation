@@ -18,6 +18,12 @@ class Expander extends Component {
 
     }
 
+    onTransitionEnd = ({target, propertyName, elapsedTime}) => {
+        if(target===this.refs.theBox) {
+            console.log(`expand end:${propertyName}:${elapsedTime}`);
+        }
+    };
+
     handleIconClick = () => {
         this.setState({expand: !this.state.expand});
     };
@@ -49,7 +55,7 @@ class Expander extends Component {
         divStyle.width += styles.small.width + 5;
 
         return (
-            <div style={divStyle}>
+            <div ref='theBox' style={divStyle} onTransitionEnd={this.onTransitionEnd}>
                 <IconButton iconStyle={styles.smallIcon} style={styles.small} onClick={this.handleIconClick}>
                     <SearchIcon />
                 </IconButton>
@@ -65,6 +71,12 @@ class Mover extends Component {
         this.state = {expand: false};
 
     }
+
+    onTransitionEnd = ({target, propertyName, elapsedTime}) => {
+        if(target===this.refs.theBox) {
+            console.log(`move end:${propertyName}:${elapsedTime}`);
+        }
+    };
 
     handleIconClick = () => {
         this.setState({expand: !this.state.expand});
@@ -85,7 +97,7 @@ class Mover extends Component {
             },
             expanded: {
                 height: 50,
-                transform:'translateX(10em)',
+                transform: 'translateX(10em)',
                 transition: transition
             },
             collapsed: {
@@ -98,7 +110,7 @@ class Mover extends Component {
         divStyle.width = styles.small.width + 5;
 
         return (
-            <div style={divStyle}>
+            <div ref="theBox" style={divStyle} onTransitionEnd={this.onTransitionEnd}>
                 <IconButton iconStyle={styles.smallIcon} style={styles.small} onClick={this.handleIconClick}>
                     <SearchIcon />
                 </IconButton>
@@ -108,7 +120,6 @@ class Mover extends Component {
 }
 
 class App extends Component {
-
 
     render() {
 
