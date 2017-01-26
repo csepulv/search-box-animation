@@ -6,10 +6,10 @@ import SearchIcon from 'material-ui/svg-icons/action/search';
 const SearchBox = ({isOpen, additionalStyles, clickHandler}) => {
     const baseStyles = {
         open: {
-            width: 300,
+
         },
         closed: {
-            width: 0,
+
         },
         smallIcon: {
             width: 30,
