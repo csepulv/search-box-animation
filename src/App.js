@@ -8,9 +8,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import {TextField, IconButton} from 'material-ui'
-import SearchIcon from 'material-ui/svg-icons/action/search';
-
 import SearchBox from './SearchBox'
 import makeExpanding from './expanding-animation';
 import makeFloatUp from './float-up-animation';
