@@ -13,6 +13,8 @@ import SearchIcon from 'material-ui/svg-icons/action/search';
 
 import SearchBox from './SearchBox'
 import makeExpanding from './expanding-animation';
+import makeFloatUp from './float-up-animation';
+import makeSpringUp from './spring-up-animation';
 
 const expandTransition = 'width 0.75s cubic-bezier(0.000, 0.795, 0.000, 1.000)';
 const expandStyle = {
@@ -151,11 +153,13 @@ class App extends Component {
             transform: 'translate(-50%, -50%)',
         };
         const ExpandingSearchBox = makeExpanding(SearchBox);
+        const FloatingSearchBox = makeFloatUp(SearchBox);
+        const SpringUpSearchBox = makeSpringUp(SearchBox);
 
         return (
             <MuiThemeProvider>
                 <div style={style}>
-                    <ExpandingSearchBox/>
+                    <SpringUpSearchBox/>
                 </div>
             </MuiThemeProvider>
         );
