@@ -15,6 +15,7 @@ import SearchBox from './SearchBox'
 import makeExpanding from './expanding-animation';
 import makeFloatUp from './float-up-animation';
 import makeSpringUp from './spring-up-animation';
+import makeValidationErrorAnimation from './validation-error-animation';
 
 const expandTransition = 'width 0.75s cubic-bezier(0.000, 0.795, 0.000, 1.000)';
 const expandStyle = {
@@ -155,11 +156,12 @@ class App extends Component {
         const ExpandingSearchBox = makeExpanding(SearchBox);
         const FloatingSearchBox = makeFloatUp(SearchBox);
         const SpringUpSearchBox = makeSpringUp(SearchBox);
+        const ValidationSearchBox = makeValidationErrorAnimation(SearchBox);
 
         return (
             <MuiThemeProvider>
                 <div style={style}>
-                    <SpringUpSearchBox/>
+                    <ValidationSearchBox/>
                 </div>
             </MuiThemeProvider>
         );

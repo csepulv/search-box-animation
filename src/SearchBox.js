@@ -3,7 +3,7 @@ import React from 'react';
 import {TextField, IconButton} from 'material-ui'
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-const SearchBox = ({isOpen, additionalStyles, clickHandler}) => {
+const SearchBox = ({isOpen, additionalStyles, clickHandler, frameClass}) => {
     const baseStyles = {
         open: {
             width: 300,
@@ -34,7 +34,7 @@ const SearchBox = ({isOpen, additionalStyles, clickHandler}) => {
     divStyle.width += baseStyles.icon.width + 5;
 
     return (
-        <div style={divStyle}>
+        <div style={divStyle} className={frameClass ? frameClass : ''}>
             <IconButton iconStyle={baseStyles.smallIcon} style={baseStyles.icon} onClick={() => clickHandler()}>
                 <SearchIcon />
             </IconButton>
