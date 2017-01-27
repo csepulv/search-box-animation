@@ -17,7 +17,10 @@ const makeValidationErrorAnimation = (Target) => {
         }
 
         onClick = () => {
-            this.setState({shouldShake: !this.state.shouldShake});
+            this.setState({shouldShake: true}, () => {
+                const self = this;
+                setTimeout(() => self.setState({shouldShake: false}), 1000);
+            });
         };
 
         render() {
