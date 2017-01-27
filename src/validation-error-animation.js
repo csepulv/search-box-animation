@@ -21,6 +21,7 @@ const makeValidationErrorAnimation = (Target) => {
                 const self = this;
                 setTimeout(() => self.setState({shouldShake: false}), 1000);
             });
+            //https://css-tricks.com/restart-css-animation/ for discussion on restart
         };
 
         render() {
