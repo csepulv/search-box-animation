@@ -9,30 +9,28 @@ const styles = StyleSheet.create({
     }
 });
 
-const makeValidationErrorAnimation = (Target) => {
+const makeShakeAnimation = (Target) => {
     return class extends Component {
         constructor(props) {
             super(props);
-            this.state = {shouldShake: false};
+            this.state = {shouldShake: props.shouldShake};
         }
 
-        onClick = () => {
-            this.setState({shouldShake: true}, () => {
+        componentWillReceiveProps(nextProps){
+            this.setState({shouldShake: nextProps.shouldShake}, () => {
                 const self = this;
                 setTimeout(() => self.setState({shouldShake: false}), 1000);
             });
             //https://css-tricks.com/restart-css-animation/ for discussion on restart
-        };
+        }
 
         render() {
             return (
-                <Target isOpen={true}
-                        clickHandler={this.onClick}
-                        additionalStyles={{text: {}, frame: {}}}
+                <Target {...this.props}
                         frameClass={this.state.shouldShake ? css(styles.headShake) : ''}/>
             );
         }
     }
 };
 
-export default makeValidationErrorAnimation;
+export default makeShakeAnimation;

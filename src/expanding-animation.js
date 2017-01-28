@@ -12,17 +12,15 @@ const makeExpanding = (Target) => {
         }
 
         onClick = () => {
-            let newState = !this.state.isOpen;
-            this.setState({
-                isOpen: newState
-            });
+            this.setState({isOpen: !this.state.isOpen});
         };
 
         render() {
             return (
-                <Target isOpen={this.state.isOpen}
-                        clickHandler={this.onClick}
-                        additionalStyles={{text:animationStyle, frame:animationStyle}} />
+                <Target {...this.props}
+                        isOpen={this.state.isOpen}
+                        onClick={this.onClick}
+                        additionalStyles={{text: animationStyle, frame: animationStyle}}/>
             );
         }
     }
