@@ -27,6 +27,10 @@ const SearchBox = ({isOpen, additionalStyles, clickHandler, frameClass}) => {
         }
     };
 
+
+    //handlers, events
+    //focus/click?, submit, text update
+
     let textStyle = isOpen ? baseStyles.open : baseStyles.closed;
     textStyle = Object.assign(textStyle, additionalStyles ? additionalStyles.text : {});
 
@@ -35,7 +39,7 @@ const SearchBox = ({isOpen, additionalStyles, clickHandler, frameClass}) => {
 
     return (
         <div style={divStyle} className={frameClass ? frameClass : ''}>
-            <IconButton iconStyle={baseStyles.smallIcon} style={baseStyles.icon} onClick={() => clickHandler()}>
+            <IconButton iconStyle={baseStyles.smallIcon} style={baseStyles.icon} onFocus={() => clickHandler()}>
                 <SearchIcon />
             </IconButton>
             <TextField name='search' style={textStyle}/>

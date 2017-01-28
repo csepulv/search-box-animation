@@ -32,7 +32,7 @@ class App extends Component {
         return (
             <MuiThemeProvider>
                 <div style={style}>
-                    <ValidationSearchBox/>
+                    <ExpandingSearchBox/>
                 </div>
             </MuiThemeProvider>
         );
