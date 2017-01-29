@@ -19,7 +19,7 @@ const makeFloatUp = (Target) => {
         render() {
             return (
                 <Target isOpen={true}
-                        clickHandler={this.onClick}
+                        onClick={this.onClick}
                         additionalStyles={{text: {}, frame: this.state.moveTop ? animationStyle :{}}}/>
             );
         }

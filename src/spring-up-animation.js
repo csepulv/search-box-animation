@@ -21,7 +21,7 @@ const makeSpringUp = (Target) => {
                 <Motion style={style}>
                     {({translateY}) => (
                         <Target isOpen={true}
-                                clickHandler={this.onClick}
+                                onClick={this.onClick}
                                 additionalStyles={{
                                     text: {},
                                     frame: {
