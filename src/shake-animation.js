@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const makeValidationErrorAnimation = (Target) => {
+const makeShakeAnimation = (Target) => {
     return class extends Component {
         constructor(props) {
             super(props);
@@ -35,4 +35,4 @@ const makeValidationErrorAnimation = (Target) => {
     }
 };
 
-export default makeValidationErrorAnimation;
+export default makeShakeAnimation;

@@ -9,10 +9,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import SearchBox from './SearchBox'
-import makeExpanding from './expanding-animation';
-import makeFloatUp from './float-up-animation';
-import makeSpringUp from './spring-up-animation';
-import makeValidationErrorAnimation from './validation-error-animation';
+
+import makeShakeAnimation from './shake-animation';
 
 class App extends Component {
 
@@ -24,10 +22,7 @@ class App extends Component {
             left: '50%',
             transform: 'translate(-50%, -50%)',
         };
-        const ExpandingSearchBox = makeExpanding(SearchBox);
-        const FloatingSearchBox = makeFloatUp(SearchBox);
-        const SpringUpSearchBox = makeSpringUp(SearchBox);
-        const ValidationSearchBox = makeValidationErrorAnimation(SearchBox);
+        const ValidationSearchBox = makeShakeAnimation(SearchBox);
 
         return (
             <MuiThemeProvider>
