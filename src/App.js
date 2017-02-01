@@ -11,6 +11,8 @@ injectTapEventPlugin();
 import SearchBox from './SearchBox'
 import makeAnimatedValidationSearchBox from './search-box-controller';
 
+const AnimatedSearchBox = makeAnimatedValidationSearchBox(SearchBox);
+
 class App extends Component {
 
     render() {
@@ -21,8 +23,6 @@ class App extends Component {
             left: '50%',
             transform: 'translate(-50%, -50%)',
         };
-        const AnimatedSearchBox = makeAnimatedValidationSearchBox(SearchBox);
-
 
         return (
             <MuiThemeProvider>
