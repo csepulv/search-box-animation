@@ -5,7 +5,7 @@ const animationStyle = {
     transition: 'transform 1s ease'
 };
 
-const makeFloatUp = (Target) => {
+const makeMoveUp = (Target) => {
     return class extends Component {
         constructor(props) {
             super(props);
@@ -26,4 +26,4 @@ const makeFloatUp = (Target) => {
     }
 };
 
-export default makeFloatUp;
+export default makeMoveUp;
