@@ -13,13 +13,13 @@ const makeShakeAnimation = (Target) => {
     return class extends Component {
         constructor(props) {
             super(props);
-            this.state = {shouldShake: props.shouldShake};
+            this.state = {startShake: props.shouldShake};
         }
 
         componentWillReceiveProps(nextProps){
-            this.setState({shouldShake: nextProps.shouldShake}, () => {
+            this.setState({startShake: nextProps.shouldShake}, () => {
                 const self = this;
-                setTimeout(() => self.setState({shouldShake: false}), 1000);
+                setTimeout(() => self.setState({startShake: false}), 1000);
             });
             //https://css-tricks.com/restart-css-animation/ for discussion on restart
         }
@@ -27,7 +27,7 @@ const makeShakeAnimation = (Target) => {
         render() {
             return (
                 <Target {...this.props}
-                        frameClass={this.state.shouldShake ? css(styles.headShake) : ''}/>
+                        frameClass={this.state.startShake ? css(styles.headShake) : ''}/>
             );
         }
     }
