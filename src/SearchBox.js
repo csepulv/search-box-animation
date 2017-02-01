@@ -56,12 +56,5 @@ const SearchBox = ({isOpen, query, onClick, onSubmit, onQueryUpdate, additionalS
     );
 };
 
-SearchBox.propTypes = {
-    query: React.PropTypes.string.isRequired,
-    onSubmit: React.PropTypes.func.isRequired,
-    onClick: React.PropTypes.func.isRequired,
-    onQueryUpdate: React.PropTypes.func.isRequired
-};
-
 
 export  default SearchBox;

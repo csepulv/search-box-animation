@@ -14,7 +14,7 @@ const makeSpringUp = (Target) => {
 
         render() {
             const style = {
-                translateY: this.state.moveTop ? spring(-300, presets.wobbly) : spring(0)
+                translateY: this.state.moveTop ? spring(-150, presets.wobbly) : spring(0)
             };
 
             return (

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {SelectField, MenuItem} from 'material-ui'
 
 // (Make material-ui happy)
 // Needed for onTouchTap
@@ -10,10 +11,21 @@ injectTapEventPlugin();
 
 import SearchBox from './SearchBox'
 import makeAnimatedValidationSearchBox from './search-box-controller';
+import makeMoveUp from './move-up-animation';
+import makeSpringUp from './spring-up-animation'
 
-const AnimatedSearchBox = makeAnimatedValidationSearchBox(SearchBox);
+const MoveUpSearchBox = makeMoveUp(SearchBox);
+const SpringUpSearchBox = makeSpringUp(SearchBox);
+const ValidatedSearchBox = makeAnimatedValidationSearchBox(SearchBox);
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            animatedComponents: [<ValidatedSearchBox/>, <MoveUpSearchBox/>, <SpringUpSearchBox/>],
+            selectIndex: 0
+        };
+    }
 
     render() {
         //https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
@@ -27,7 +39,18 @@ class App extends Component {
         return (
             <MuiThemeProvider>
                 <div style={style}>
-                    <AnimatedSearchBox/>
+                    {this.state.animatedComponents[this.state.selectIndex]}
+                    <SelectField
+                        floatingLabelText="Animation"
+                        value={this.state.selectIndex}
+                        onChange={(event, index, value) => this.setState({selectIndex: value})}
+                    >
+                        <MenuItem value={0} primaryText="Expand & Validation"/>
+                        <MenuItem value={1} primaryText="Move Up"/>
+                        <MenuItem value={2} primaryText="Spring Up"/>
+                    </SelectField>
+                    <br/>
+                    Click the Search icon to animate.
                 </div>
             </MuiThemeProvider>
         );

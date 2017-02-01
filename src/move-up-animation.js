@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 const animationStyle = {
-    transform: 'translateY(-300px)',
+    transform: 'translateY(-150px)',
     transition: 'transform 1s ease'
 };
 
