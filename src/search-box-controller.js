@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
 import makeExpanding from './expanding-animation';
-import makeValidationErrorAnimation from './shake-animation';
+import makeShakingAnimation from './shake-animation';
 
 const makeAnimatedValidationSearchBox = (Target) => {
-    const WrappedComponent = makeValidationErrorAnimation(makeExpanding(Target));
+    const WrappedComponent = makeShakingAnimation(makeExpanding(Target));
 
     return class extends Component {
         constructor(props) {
