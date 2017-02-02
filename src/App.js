@@ -11,10 +11,9 @@ injectTapEventPlugin();
 
 import SearchBox from './SearchBox'
 import makeAnimatedValidationSearchBox from './search-box-controller';
-import makeMoveUp from './move-up-animation';
-import makeSpringUp from './spring-up-animation'
+import {makeSpringUp, makeTranslateUp} from './move-up-animations';
 
-const MoveUpSearchBox = makeMoveUp(SearchBox);
+const TranslateUp = makeTranslateUp(SearchBox);
 const SpringUpSearchBox = makeSpringUp(SearchBox);
 const ValidatedSearchBox = makeAnimatedValidationSearchBox(SearchBox);
 
@@ -22,7 +21,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            animatedComponents: [<ValidatedSearchBox/>, <MoveUpSearchBox/>, <SpringUpSearchBox/>],
+            animatedComponents: [<ValidatedSearchBox/>, <TranslateUp/>, <SpringUpSearchBox/>],
             selectIndex: 0
         };
     }
@@ -46,7 +45,7 @@ class App extends Component {
                         onChange={(event, index, value) => this.setState({selectIndex: value})}
                     >
                         <MenuItem value={0} primaryText="Expand & Validation"/>
-                        <MenuItem value={1} primaryText="Move Up"/>
+                        <MenuItem value={1} primaryText="Translate Up"/>
                         <MenuItem value={2} primaryText="Spring Up"/>
                     </SelectField>
                     <br/>
